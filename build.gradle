@@ -5,23 +5,25 @@ plugins {
     id "maven-publish"
 }
 
-
+group = 'com.donphds.ma'
+version = '0.0.1'
 sourceCompatibility = '11'
 publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/donpds/donphds-ma-common")
+            url = "https://maven.pkg.github.com/donphds/donphds-ma-common"
             credentials {
-                username = "donphds@163.com"
-                password = "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"
+                username = project.findProperty("gpr.user")
+                password = project.findProperty("gpr.key")
             }
         }
     }
     publications {
-        group = 'com.donphds.ma'
-        version = '0.0.1'
-        mavenJava(MavenPublication) {
+        gpr(MavenPublication) {
+            groupId = 'com.domphds.ma'
+            artifactId = 'common'
+            version = '1.1'
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
@@ -30,8 +32,8 @@ publishing {
                     fromResolutionResult()
                 }
             }
+            from(components.java)
         }
-
     }
 }
 configurations {
@@ -45,12 +47,25 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'org.apache.commons:commons-pool2:2.11.1'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation 'cn.hutool:hutool-core:5.8.3'
+    implementation 'cn.hutool:hutool-extra:5.8.3'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Alpha3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.3'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.3'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
+
 }
 
 tasks.named('test') {

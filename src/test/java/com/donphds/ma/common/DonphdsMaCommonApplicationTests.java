@@ -1,4 +1,4 @@
-package com.donphds.ma.com;
+package com.donphds.ma.common;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
