@@ -30,7 +30,10 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: echo some env
-      run: echo ${{secrets.GPR_USER}} sss ${{secrets.GPR_TOKEN}}
+      env:
+        USERNAME: ${{ secrets.GPR_USER }}
+        TOKEN: ${{ secrets.GPR_TOKEN }}
+      run: echo  $USERNAME +++++ $TOKEN
 
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
