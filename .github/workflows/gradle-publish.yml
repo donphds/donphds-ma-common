@@ -31,8 +31,8 @@ jobs:
 
     - name: echo some env
       env:
-        USERNAME: ${{ secrets.GITHUB_USERNAME }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        USERNAME: ${{ secrets.GRP_USER }}
+        TOKEN: ${{ secrets.GPR_TOKEN }}
       run: |
         echo  $USERNAME +++++ $TOKEN
 
