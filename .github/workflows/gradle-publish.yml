@@ -33,11 +33,13 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build -x test
+      run: echo ${{secrets.GPR_USER}} sss ${{secrets.GPR_TOKEN}}
 
     - name: Publish to GitHub Packages
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: publish
+      run:
       env:
         USERNAME: ${{ secrets.GPR_USER }}
         TOKEN: ${{ secrets.GPR_TOKEN }}
