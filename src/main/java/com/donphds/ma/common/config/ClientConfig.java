@@ -13,7 +13,6 @@ import org.springframework.web.util.DefaultUriBuilderFactory;
  **/
 @Configuration
 public class ClientConfig {
-
     @Bean
     public WebClient webClient() {
         DefaultUriBuilderFactory uriBuilderFactory = new DefaultUriBuilderFactory();

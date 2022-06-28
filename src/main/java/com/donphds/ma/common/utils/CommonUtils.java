@@ -35,6 +35,7 @@ public class CommonUtils {
     public static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern(DATE_PATTER);
 
 
+
     public static String getFileExtension(String filename) {
         String suffix = FileNameUtil.getSuffix(filename);
         return StringUtils.isBlank(suffix) ? suffix : "." + suffix;
