@@ -53,6 +53,7 @@ public class GlobalErrorWebExceptionHandler implements ErrorWebExceptionHandler 
             log.error("全局异常消息序列化失败: ", e);
             dataBuffer = bufferFactory.wrap("".getBytes());
         }
+        log.error("Exception Stack: ", ex);
         return response.writeWith(Mono.just(dataBuffer));
     }
 }
