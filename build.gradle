@@ -23,7 +23,7 @@ publishing {
         gpr(MavenPublication) {
             groupId = 'com.donphds.ma'
             artifactId = 'common'
-            version = '1.4'
+            version = '1.5'
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
