@@ -17,6 +17,17 @@ import java.util.Objects;
 public class JWTUtils {
 
 
+  /**
+   * @param aud                受理人
+   * @param iss                委托人
+   * @param jti                唯一id
+   * @param sub                主体信息
+   * @param exp                过期时间
+   * @param key                asy 时为私钥
+   * @param claims             附带信息，会覆盖
+   * @param signatureAlgorithm 签名算法
+   * @return
+   */
   public static String create(
     String aud,
     String iss,
@@ -39,6 +50,12 @@ public class JWTUtils {
       .setSubject(sub).compact();
   }
 
+  /**
+   * @param token jwt
+   * @param key   asy 为公钥
+   * @return
+   */
+
   public static Map<String, Object> getClaimsMap(String token, Key key) {
     return Jwts.parserBuilder()
       .setSigningKey(key)
@@ -59,7 +76,6 @@ public class JWTUtils {
 
   public static Boolean verify(String token, Key key) {
     try {
-      ;
       return Objects.isNull(getClaimsMap(token, key)) ? Boolean.FALSE : Boolean.TRUE;
     } catch (Exception e) {
       log.error("jwt 验证失败: {}", token);
