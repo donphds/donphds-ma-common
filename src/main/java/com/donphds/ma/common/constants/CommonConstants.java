@@ -10,5 +10,6 @@ public class CommonConstants {
     public static final String TOKEN = "ACCESS_TOKEN";
     public static final String BEARER = "Bearer";
     public static final String DATE_PATTER = "YYYY-MM-dd HH:mm:ss";
-    public static final String SPLIT = ":";
+    public static final String JOINER_SPLIT = ":";
+    public static final String JOINER_BLANK = " ";
 }

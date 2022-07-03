@@ -23,7 +23,7 @@ publishing {
         gpr(MavenPublication) {
             groupId = 'com.donphds.ma'
             artifactId = 'common'
-            version = '1.1.7'
+            version = '1.1.8'
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
@@ -71,9 +71,7 @@ dependencies {
     api 'com.fasterxml.jackson.core:jackson-core:2.13.3'
     api 'com.fasterxml.jackson.core:jackson-annotations:2.13.3'
     api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
-    api 'io.jsonwebtoken:jjwt-api:0.11.5'
-    api 'io.jsonwebtoken:jjwt-impl:0.11.5'
-
+    runtimeOnly 'io.jsonwebtoken:jjwt-api:0.11.5'
 }
 
 tasks.named('test') {
