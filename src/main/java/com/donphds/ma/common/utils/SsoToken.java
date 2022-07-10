@@ -52,19 +52,19 @@ public class SsoToken extends Token {
     if (ssoToken.openIds == null) {
       ssoToken.openIds = new ArrayList<>(3);
     }
-    ssoToken.putIf(subject.getOpenid());
+    ssoToken.putIf(subject.getOpenId());
     ssoToken.id(ssoToken.openIds);
     return ssoToken;
   }
 
   public SsoToken newSsoToken(DomainUser subject, String audience) {
-    putIf(subject.getOpenid());
+    putIf(subject.getOpenId());
     return new SsoToken(Factory.build(new Issuer())
       .id(this.openIds).sub(subject).aud(audience));
   }
 
   public SsoToken newSsoToken(DomainUser subject, String audience, Integer expIn) {
-    putIf(subject.getOpenid());
+    putIf(subject.getOpenId());
     return new SsoToken(Factory.build(new Issuer())
       .id(this.openIds).sub(subject).aud(audience).exp(expIn));
   }
