@@ -4,7 +4,7 @@ import cn.hutool.core.codec.Base64;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.io.file.FileNameUtil;
 import com.donphds.ma.common.exception.AuthException;
-import com.donphds.ma.common.properties.AuthProperties;
+import com.donphds.ma.common.properties.CommonProperties;
 import com.donphds.ma.donphdsmaauth.pojo.po.StatePo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -60,7 +60,7 @@ public class CommonUtils {
         }
     }
 
-    public static Mono<StatePo> validateState(String state, AuthProperties properties, ObjectMapper om) {
+    public static Mono<StatePo> validateState(String state, CommonProperties properties, ObjectMapper om) {
         if (StringUtils.isBlank(state)) {
             return Mono.error(new AuthException("state is missing"));
         }

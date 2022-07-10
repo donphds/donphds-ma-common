@@ -5,11 +5,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @Author: donphds
- * @Since: 1.0
  **/
 @Data
-@ConfigurationProperties("auth")
-public class AuthProperties {
+@ConfigurationProperties("common")
+public class CommonProperties {
     private String scheme;
     private String state;
     private String fmt;

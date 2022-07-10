@@ -1,6 +1,6 @@
 package com.donphds.ma.common.config;
 
-import com.donphds.ma.common.properties.AuthProperties;
+import com.donphds.ma.common.properties.CommonProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 @EnableConfigurationProperties({
-        AuthProperties.class,
+        CommonProperties.class,
 })
 public class PropertiesConfig {
 }
